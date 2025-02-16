@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player - Bagong V4</title>
+    <style>
+        /* Tema Gelap */
+        body {
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Judul */
+        h1 {
+            padding: 20px;
+            background-color: #1e1e1e;
+            margin: 0;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Kotak Video */
+        .video-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 15px;
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Ukuran Video */
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+        }
+
+        /* Kotak Cerita */
+        .story-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            text-align: left;
+            display: none; /* Disembunyikan awalnya */
+        }
+
+        /* Judul Cerita */
+        .story-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraf Cerita */
+        .story-container p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Tombol Alasan & Tutup */
+        .toggle-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .toggle-button:hover {
+            background-color: darkred;
+        }
+
+        /* Tombol Tutup di dalam cerita */
+        .close-button {
+            display: block;
+            margin: 20px auto 0;
+            background-color: gray;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .close-button:hover {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tempat Video Bagong V4</h1>
+
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/vR0JcYHR3ps?autoplay=0&rel=0&modestbranding=1"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Tombol ALASAN -->
+    <button class="toggle-button" onclick="toggleStory()">Alasan</button>
+
+    <div class="story-container" id="story">
+        <div class="story-title">Bagleran dan Drama Izin Nari Papua</div>
+        <p>Sore itu, <strong>Bagong laut mulih jam 1 uli mroyek sik koler e</strong> dengan langkah santai, seperti orang yang baru saja menyelesaikan misi berat. Baru saja mau selonjoran di teras, tiba-tiba <strong>Bagleran</strong> datang dari arah sekolah dengan wajah penuh tekad.</p>
+        <p>"Bagong, aku harus izin ke bapak buat kerja kelompok nari Papua! Ujian praktek besok!" katanya penuh semangat.</p>
+        <p>Bagong melirik malas. "Terus?"</p>
+        <p>"Ya bantuin aku biar dikasih izin!"</p>
+        <p>Mereka masuk rumah, mendapati bapaknya sedang duduk di kursi kayu sambil membaca koran yang usianya mungkin lebih tua dari Bagleran sendiri.</p>
+        <p>"Pak, aku mau kerja kelompok nari Papua buat ujian praktek. Tempatnya agak jauh," kata Bagleran dengan suara sehalus mungkin.</p>
+        <p>Bapaknya menurunkan koran, menatapnya dengan mata penuh kecurigaan.</p>
+        <p>"Ngapain kamu ke sana jauh? Kamu baru bisa naik motor!"</p>
+        <p>Bagleran sudah menduga ini bakal sulit. Maka dia mengeluarkan senjata rahasia: menelpon ibunya, <strong>MuliAsih Deling</strong>.</p>
+        <p>"Bu, tolong bilang bapak bolehin aku pergi!"</p>
+        <p>Di seberang sana, ibunya yang sedang santai menjawab, "Boleh, asal hati-hati."</p>
+        <p>Bagleran menoleh ke bapaknya dengan ekspresi menang. Mau tak mau, bapaknya akhirnya mengangguk.</p>
+        <p> Tapi belum selesai. <strong>Misi kedua dimulai: minta uang paketan.</strong></p>
+        <p>"Pak, sekalian minta uang buat paket data," kata Bagleran santai.</p>
+        <p>"Lagi-lagi duit! Pelit banget jadi anak!"</p>
+        <p>"Tapi kalau motor mogok gimana? Aku harus komunikasi!"</p>
+        <p>Bapaknya menghela napas panjang, lalu merogoh dompet dengan berat hati. Akhirnya, <strong>10 ribu rupiah</strong> berpindah tangan.</p>
+        <p>Bagleran tersenyum puas. <strong>Misi izin dan paket data sukses!</strong></p>
+
+        <!-- Tombol TUTUP -->
+        <button class="close-button" onclick="toggleStory()">Tutup</button>
+    </div>
+
+    <script>
+        function toggleStory() {
+            var story = document.getElementById("story");
+            if (story.style.display === "none" || story.style.display === "") {
+                story.style.display = "block";
+            } else {
+                story.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
